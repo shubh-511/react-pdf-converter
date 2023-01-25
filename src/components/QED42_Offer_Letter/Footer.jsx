@@ -23,7 +23,8 @@ const Footer = () => {
     },
     line: {
       border: "0.5px solid black",
-      marginBottom: "2px"
+      marginBottom: "2px",
+      width: "100%",
     },
   });
 

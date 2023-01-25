@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View, Font } from "@react-pdf/renderer";
 import React from "react";
 
-const Content = () => {
+const Content = ({ designation, department }) => {
 
   const styles = StyleSheet.create({
     font: {
@@ -13,8 +13,7 @@ const Content = () => {
     <>
       <View>
         <Text style={styles.font}>
-          We are incredibly excited to offer you the position of Associate
-          Engineer - JavaScript with our Organization. QED42 is a growing open
+          We are incredibly excited to offer you the position of {designation} with our Organizationnn. QED42 is a growing open
           source company focused on making its clients successful by executing
           their ideas into beautiful and usable apps, most of our work is in the
           space of publishing, e-commerce, social, and enterprise. We have
@@ -37,10 +36,10 @@ const Content = () => {
 
       <View style={{ marginTop: 20 }}>
         <Text style={styles.font}>
-          We envision you becoming an integral member of our JavaScript
+          We envision you becoming an integral member of our {department}
           department, contributing to the QED42 mission. We invest in our many
           talented QED42 team members and we foresee opportunities for your
-          personal and professional growth as a Associate Engineer - JavaScript.
+          personal and professional growth as a {designation}.
         </Text>
       </View>
 

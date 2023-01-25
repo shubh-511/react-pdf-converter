@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   Page,
   Text,
@@ -35,7 +35,7 @@ const MyDoc =  ({ data }) => {
         <Header />
 
         <View>
-          <SemiHeader />
+          <SemiHeader SemiHeaderData={data} />
           <Text
             style={{
               fontSize: "14px",
@@ -44,9 +44,9 @@ const MyDoc =  ({ data }) => {
               marginTop: "10px",
             }}
           >
-            Letter Of Offer Of Employment - Associate Engineer - Javascript
+            Letter Of Offer Of Employment - {data["Title"]}
           </Text>
-          <Text style={{ fontSize: "12px" }}>Dear Nikhil,</Text>
+          <Text style={{ fontSize: "12px" }}>Dear {data["Candidate Full Name"]},</Text>
         </View>
         <View
           style={{
@@ -56,7 +56,7 @@ const MyDoc =  ({ data }) => {
             fontWeight: "light",
           }}
         >
-          <Content />
+          <Content designation={data["Title"]} department={data["Department"]} />
         </View>
         <Footer />
       </Page>
@@ -70,7 +70,7 @@ const MyDoc =  ({ data }) => {
             fontWeight: "light",
           }}
         >
-          <ContentPage2 />
+          <ContentPage2 outlineData={data} />
         </View>
         <Footer />
       </Page>
@@ -84,7 +84,7 @@ const MyDoc =  ({ data }) => {
             fontWeight: "light",
           }}
         >
-          <CTCTable />
+          <CTCTable dataBreakups={data} />
         </View>
         <Footer />
       </Page>
@@ -92,8 +92,7 @@ const MyDoc =  ({ data }) => {
   )
     .toBlob()
     .then(async (res) => {
-      console.log("res", res)
-      saveAs(res, res.unique);
+      saveAs(res, data["Candidate Full Name"]);
     })
     .catch((err) => {
       console.log("error", err);

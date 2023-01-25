@@ -1,7 +1,7 @@
 import { View, Text, Font } from "@react-pdf/renderer";
 import React from "react";
 
-const ContentPage2 = () => {
+const ContentPage2 = ({ outlineData }) => {
   Font.register({
     family: "Lato Bold",
     src: `https://fonts.gstatic.com/s/lato/v16/S6u9w4BMUTPHh6UVSwiPHA.ttf`,
@@ -26,18 +26,16 @@ const ContentPage2 = () => {
         </Text>
         <View style={{ marginTop: "7px" }}>
           <Text style={styles.textMargin}>
-            <Text style={{ fontFamily: "Lato Bold" }}>Title</Text>: Associate
-            Engineer - JavaScript
+            <Text style={{ fontFamily: "Lato Bold" }}>Title</Text>: { outlineData["Title"] }
           </Text>
 
           <Text style={styles.textMargin}>
             <Text style={{ fontFamily: "Lato Bold" }}>Salary: </Text>
-            INR 7,00,000/- per annum.(Tax Deduction at Source Applicable)
+            INR { outlineData["CTC"] }/- per annum.(Tax Deduction at Source Applicable)
           </Text>
 
           <Text style={styles.textMargin}>
-            <Text style={{ fontFamily: "Lato Bold" }}>Start date: </Text> 4th
-            August, 2022
+            <Text style={{ fontFamily: "Lato Bold" }}>Start date: </Text> { outlineData["DOJ"] }
           </Text>
           <Text style={styles.textMargin}>
             <Text style={{ fontFamily: "Lato Bold" }}>Hours Of Work: </Text> 9
@@ -47,7 +45,7 @@ const ContentPage2 = () => {
             <Text style={{ fontFamily: "Lato Bold" }}>
               Reporting Relationship:{" "}
             </Text>{" "}
-            Javascript - Lead
+            { outlineData["Reporting Relationship"] }
           </Text>
           <Text style={styles.textMargin}>
             <Text style={{ fontFamily: "Lato Bold" }}>Leave Policy: </Text>A

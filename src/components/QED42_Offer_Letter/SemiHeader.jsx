@@ -13,16 +13,17 @@ const styles = StyleSheet.create({
   }
 });
 
-const SemiHeader = () => {
+const SemiHeader = ({ SemiHeaderData }) => {
+  const date = new Date(SemiHeaderData["Date"]);
   return (
     <>
     <View style={styles.container}>
       <View>
-        <Text style={styles.property}>Nikhil Taneja</Text>
-        <Text style={styles.property}>Ahmedabad</Text>
+        <Text style={styles.property}>{SemiHeaderData["Candidate Full Name"]}</Text>
+        <Text style={styles.property}>{SemiHeaderData["Candidate City"]}</Text>
       </View>
       <View>
-        <Text style={styles.property}>Date: 20th June,2022</Text>
+        <Text style={styles.property}>Date: {date.toDateString()}</Text>
       </View>
     </View>
   </>

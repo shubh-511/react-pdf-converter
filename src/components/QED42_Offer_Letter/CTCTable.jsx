@@ -21,20 +21,40 @@ const styles = StyleSheet.create({
   },
 });
 
-const CTCTable = () => {
+const CTCTable = ({ dataBreakups }) => {
+  const totalAAnnual = () => {
+    const annualATotal = dataBreakups["Annual Basic"] + dataBreakups["Annual HRA"] + dataBreakups["Annual Stat Bon."] + dataBreakups["Annual Spec. All"];
+    return annualATotal;
+  }
+
+  const totalAMonthly = () => {
+    const monthlyATotal = dataBreakups["Monthly Basic"] + dataBreakups["Monthly HRA"] + dataBreakups["Monthly Stat Bon."] + dataBreakups["Monthly Spec. All"];
+    return monthlyATotal;
+  }
+
+  const totalBMonthly = () => {
+    const monthlyBTotal = dataBreakups["Monthly EMPLOYER'S PF"] + dataBreakups["Monthly Gratuity"];
+    return monthlyBTotal;
+  }
+
+  const totalBYearly = () => {
+    const yearlyBTotal = dataBreakups["Annual EMPLOYER'S PF"] + dataBreakups["Annual Gratuity"];
+    return yearlyBTotal;
+  }
+  
   return (
     <>
       <Table
         data={[
-          { particular: "Basic Salary", annual: "125003", monthly: "12333" },
-          { particular: "HRA", annual: "12344", monthly: "12000" },
-          { particular: "Statutory Bonus", annual: "45322", monthly: "2499" },
+          { particular: "Basic Salary", annual: dataBreakups["Annual Basic"], monthly: dataBreakups["Monthly Basic"] },
+          { particular: "HRA", annual: dataBreakups["Annual HRA"], monthly: dataBreakups["Monthly HRA"] },
+          { particular: "Statutory Bonus", annual: dataBreakups["Annual Stat Bon."], monthly: dataBreakups["Monthly Stat Bon."] },
           {
             particular: "Special Allowance",
-            annual: "435673",
-            monthly: "26195",
+            annual: dataBreakups["Annual Spec. All"],
+            monthly: dataBreakups["Monthly Spec. All"],
           },
-          { particular: "Total A", annual: "345543", monthly: "123456" },
+          { particular: "Total A", annual: totalAAnnual(), monthly: totalAMonthly() },
         ]}
       >
         <TableHeader>
@@ -61,18 +81,18 @@ const CTCTable = () => {
         data={[
           {
             particular: "PF Employer's Contribution",
-            annual: "21230",
-            monthly: "-",
+            annual: dataBreakups["Annual EMPLOYER'S PF"],
+            monthly: dataBreakups["Monthly EMPLOYER'S PF"],
           },
           {
             particular: "Gratuity",
-            annual: "17316",
-            monthly: "-",
+            annual: dataBreakups["Annual Gratuity"],
+            monthly: dataBreakups["Monthly Gratuity"],
           },
           {
             particular: "Total B",
-            annual: "23421",
-            monthly: "-",
+            annual: totalBYearly(),
+            monthly: totalBMonthly(),
           },
         ]}
       >
@@ -96,8 +116,8 @@ const CTCTable = () => {
       </Table>
       <Table
         data={[
-          { particular: "Annual Variable", annual: "-", monthly: "-" },
-          { particular: "Total C", annual: "-", monthly: "-" },
+          { particular: "Annual Variable", annual: dataBreakups["Annual Variable"], monthly: dataBreakups["Monthly Variable"] },
+          { particular: "Total C", annual: dataBreakups["Annual Variable"], monthly: dataBreakups["Monthly Variable"] },
         ]}
       >
         <TableHeader>
@@ -122,8 +142,8 @@ const CTCTable = () => {
       </Table>
       <Table
         data={[
-          { particular: "Medical Insurance", annual: "12756", monthly: "-" },
-          { particular: "Total D", annual: "12756", monthly: "-" },
+          { particular: "Medical Insurance", annual: dataBreakups["Annual Medical Insurance"], monthly: dataBreakups["Monthly Medical Insurance"] },
+          { particular: "Total D", annual: dataBreakups["Annual Medical Insurance"], monthly: dataBreakups["Monthly Medical Insurance"] },
         ]}
       >
         <TableHeader>

@@ -89,6 +89,7 @@ const FileUpload = () => {
                   type="file"
                   className="opacity-0"
                   onChange={readUploadFile}
+                  accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel"
                 />
               </label>
             </div>
