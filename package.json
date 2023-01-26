@@ -1,6 +1,7 @@
 {
   "name": "pdf-converter",
   "version": "0.1.0",
+  "homepage": "https://shubh-511.github.io/react-pdf-converter",
   "private": true,
   "dependencies": {
     "@david.kucsai/react-pdf-table": "^0.4.1",
@@ -9,6 +10,7 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "file-saver": "^2.0.5",
+    "gh-pages": "^5.0.0",
     "jszip": "^3.10.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -21,7 +23,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [

@@ -10,7 +10,7 @@ const styles = StyleSheet.create({
 
 const Header = () => {
   return (
-    <Image style={styles.image} src= "/qed42logo.jpeg" alt="qed42logo" />
+    <Image style={styles.image} src= "/react-pdf-converter/qed42logo.jpeg" alt="qed42logo" />
 
   )
 }
