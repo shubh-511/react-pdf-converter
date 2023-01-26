@@ -25,7 +25,7 @@ const FileUpload = () => {
         const workbook = read(data, { type: "array" });
         const sheetName = workbook.SheetNames[0];
         const worksheet = workbook.Sheets[sheetName];
-        const json = utils.sheet_to_json(worksheet);
+        const json = utils.sheet_to_json(worksheet, {raw: false});
         console.log("json", json);
         for (let i = 0; i < json.length; i += 10) {
           const chunk = json.slice(i, i + 10);

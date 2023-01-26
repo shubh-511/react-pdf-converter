@@ -15,6 +15,7 @@ const styles = StyleSheet.create({
 
 const SemiHeader = ({ SemiHeaderData }) => {
   const date = new Date(SemiHeaderData["Date"]);
+  const options = { year: 'numeric', month: 'short', day: 'numeric' };
   return (
     <>
     <View style={styles.container}>
@@ -23,7 +24,7 @@ const SemiHeader = ({ SemiHeaderData }) => {
         <Text style={styles.property}>{SemiHeaderData["Candidate City"]}</Text>
       </View>
       <View>
-        <Text style={styles.property}>Date: {date.toDateString()}</Text>
+        <Text style={styles.property}>Date: {date.toLocaleDateString('en-US', options)}</Text>
       </View>
     </View>
   </>
